@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Müşteri Ekleme";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model List<Sipsis.DAL.DB.Market>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <form class="form-horizontal" action="/Customer/Insert" method="post">
+                <div class="card-body">
+                    <h4 class="card-title">Müşteri Ekleme </h4>
+                    <span id="statusBar" hidden></span><br />
+                    <label for="fname" class=" control-label col-form-label">Müşteri Arama</label>
+                    <div class="col-12 row">
+                        <input type="text"  class="form-control col-5" id="SearchPhone" placeholder="Lütfen Müşteri Telefounu Giriniz" autocomplete="off" required>
+                        <a class="btn btn-warning" onclick="SearchCustomer()"> Arama Yap </a>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <label for="fname" class=" control-label col-form-label">Müşteri Adı</label>
+                            <input type="text" name="CustomerName" disabled class="form-control" id="CustomerName" placeholder="Lütfen Müşteri Adını Giriniz" required>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="fname" class=" control-label col-form-label">Müşteri Telefonu</label>
+                            <input type="text" name="CustomerPhone" class="form-control" id="CustomerPhone" placeholder="Lütfen Müşteri Telefonunu Giriniz" disabled required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <label for="fname" class=" control-label col-form-label">Pazaryeri Adı</label>
+                            <select name="MarketID" id="MarketID" class="form-control" disabled>
+                                @foreach (var item in Model)
+                                {
+                                    <option value="@item.ID">@item.MarketName</option>
+                                }
+
+                            </select>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="fname" class=" control-label col-form-label">Müşteri Adresi</label>
+                            <textarea class="form-control" disabled name="CustomerAdress" id="CustomerAdress" placeholder="Lütfen Müşteri Adresini Giriniz" required></textarea>
+                        </div>
+                    </div>
+                    <div class="border-top">
+                        <div class="card-body">
+                            <button type="submit" id="saveData" class="btn btn-primary" disabled>Kaydet</button>
+                        </div>
+                 </div>   </div>
+            </form>
+        </div>
+    </div>
+</div>
+

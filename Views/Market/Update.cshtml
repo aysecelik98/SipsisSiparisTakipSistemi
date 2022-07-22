@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Pazaryeri Güncelleme";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model Sipsis.DAL.DB.Market
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <form class="form-horizontal" action="/Market/Update" method="post">
+                <div class="card-body">
+                    <h4 class="card-title">Pazaryeri Güncelleme </h4>
+                    <div class="form-group row">
+                        <input type="text" name="ID" value="@Model.ID" hidden />
+                        <label for="fname" class=" control-label col-form-label">Pazaryeri Adı</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="MarketName" class="form-control" id="fname" placeholder="Lütfen Pazaryeri Adını Giriniz" required value="@Model.MarketName">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="lname" class=" control-label col-form-label">Komisyon Oranı</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="Comission" class="form-control" id="lname" placeholder="Lütfen Komisyon Oranı Giriniz" required value="@Model.Comission">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="border-top">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-warning">Güncelle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+
